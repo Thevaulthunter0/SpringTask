@@ -1,6 +1,6 @@
 package com.project.springtask.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ public class Task {
     private LocalDate dueDate;
     private boolean completed;
 
-    @JsonIgnore
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private Users users;

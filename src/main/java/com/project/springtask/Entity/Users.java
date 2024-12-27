@@ -1,5 +1,6 @@
 package com.project.springtask.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -14,8 +15,11 @@ public class Users {
     private Long id;
     private String username;
     private String password;
+
+    @JsonManagedReference
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
+
     private boolean isManager;
 
     public Users(){}
